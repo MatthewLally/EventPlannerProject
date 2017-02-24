@@ -2,21 +2,21 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
-  Generated class for the SignUp page.
+  Generated class for the Signup page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-sign-up',
-  templateUrl: 'sign-up.html'
+  selector: 'page-signup',
+  templateUrl: 'signup.html'
 })
-export class SignUpPage {
+export class SignupPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignUpPage');
+    console.log('ionViewDidLoad SignupPage');
   }
 
 }
