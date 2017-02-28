@@ -1,15 +1,93 @@
-import { Component } from '@angular/core';
-
-import { NavController } from 'ionic-angular';
-
+import { Component } from "@angular/core";
+import { NavController, AlertController } from 'ionic-angular';
+import { Events } from '../../providers/events';
+import { LoginPage } from '../login/login';
+ 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController) {
-    
+ 
+  events: any;
+ 
+  constructor(public nav: NavController, public eventService: Events, public alertCtrl: AlertController) {
+ 
   }
-
+ 
+  ionViewDidLoad(){
+ 
+    this.eventService.getEvents().then((data) => {
+      this.events = data;
+    });
+ 
+  }
+ 
+  logout(){
+    this.eventService.logout();
+    this.events = null;
+    this.nav.setRoot(LoginPage);
+  }
+ 
+  createEvent(){
+ 
+    let prompt = this.alertCtrl.create({
+      title: 'Add',
+      message: 'What do you need to do?',
+      inputs: [
+        {
+          name: 'title'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.eventService.createEvent({title: data.title});
+          }
+        }
+      ]
+    });
+ 
+    prompt.present();
+ 
+  }
+ 
+  updateEvent(event){
+ 
+    let prompt = this.alertCtrl.create({
+      title: 'Edit',
+      message: 'Change your mind?',
+      inputs: [
+        {
+          name: 'title'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.eventService.updateEvent({
+              _id: event._id,
+              _rev: event._rev,
+              title: data.title
+            });
+          }
+        }
+      ]
+    });
+ 
+    prompt.present();
+  }
+ 
+  deleteEvent(event){
+    this.eventService.deleteEvent(event);
+  }
+ 
 }

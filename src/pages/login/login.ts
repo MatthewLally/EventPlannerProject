@@ -1,22 +1,45 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/*
-  Generated class for the Login page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+import { Http, Headers } from '@angular/http';
+import { NavController } from 'ionic-angular';
+import { SignupPage } from '../signup/signup';
+import { HomePage } from '../home/home';
+import { Events } from '../../providers/events';
+ 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+ 
+  username: string;
+  password: string;
+ 
+  constructor(public nav: NavController, public http: Http, public eventService: Events) {
+ 
   }
-
+ 
+  login(){
+ 
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+ 
+      let credentials = {
+        username: this.username,
+        password: this.password
+      };
+ 
+      this.http.post('http://localhost:3000/auth/login', JSON.stringify(credentials), {headers: headers})
+        .subscribe(res => {
+          this.eventService.init(res.json());
+          this.nav.setRoot(HomePage);
+        }, (err) => {
+          console.log(err);
+        });
+ 
+  }
+ 
+  launchSignup(){
+    this.nav.push(SignupPage);
+  }
+ 
 }

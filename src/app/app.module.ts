@@ -24,6 +24,6 @@ import { Events } from '../providers/events';
     LoginPage,
     SignupPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Events]
 })
 export class AppModule {}
