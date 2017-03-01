@@ -33,10 +33,6 @@ export class Events {
   logout(){
 
     this.data = null;
-
-    this.db.destroy().then(() => {
-      console.log("database removed");
-    });
   }
 
   getEvents() {

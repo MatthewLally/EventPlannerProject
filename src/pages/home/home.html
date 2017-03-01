@@ -1,39 +1,25 @@
-<ion-header no-border>
-  <ion-navbar color="secondary">
+<ion-header>
+  <ion-navbar>
     <ion-title>
       Event Planner
     </ion-title>
-    <ion-buttons start>
-      <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
-    </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-only (click)="createEvent()"><ion-icon name="cloud-upload"></ion-icon></button>
+      <button ion-button (click)="createEvent()">
+         <ion-icon name="add"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
  
 <ion-content>
  
-  <ion-list no-lines>
+  <ion-list inset>
  
-    <ion-item-sliding *ngFor="let event of events">
- 
-      <ion-item>
- 
-        {{event.title}}
- 
-      </ion-item>
- 
-      <ion-item-options>
-        <button ion-button icon-only  (click)="updateEvent(event)">
-          <ion-icon name="create"></ion-icon>
-        </button>
-        <button ion-button icon-only color="primary" (click)="deleteEvent(event)">
-          <ion-icon name="checkmark"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
+    <ion-item *ngFor="let event of events">
+       <div item-left>{{ event.title }}</div>
+        <div item-right>{{ event.Date | date:'yMMMMd' }}</div>
+    </ion-item> 
  
   </ion-list> 
  
-</ion-content>
+</ion-content> 

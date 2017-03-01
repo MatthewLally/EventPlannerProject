@@ -1,6 +1,6 @@
 page-home {
  
-  .scroll-content {
+ /* .scroll-content {
     background-color: map-get($colors, secondary);
     display: flex !important;
     justify-content: center;
@@ -9,15 +9,14 @@ page-home {
   ion-list {
     width: 90%;
   }
- 
-  ion-item-sliding {
-    margin-top: 20px;
-    border-radius: 20px;
+
+  ion-navbar{
+    text-align: center;
   }
  
-  ion-item {
+  /*ion-item {
     border: none !important;
     font-weight: bold !important;
-  }
+  } */
  
 }
