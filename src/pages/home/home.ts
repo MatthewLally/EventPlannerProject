@@ -30,15 +30,28 @@ export class HomePage {
     this.nav.setRoot(LoginPage);
   }
  
-  createEvent(){
+   createEvent(){
  
     let prompt = this.alertCtrl.create({
-      title: 'Add',
-      message: 'What do you need to do?',
+      title: 'Add Event',
       inputs: [
         {
-          name: 'title'
+          name: 'place',
+          placeholder: "Event location"
+        },
+        {
+          name: 'type',
+          placeholder: "Type of event"
+        },
+        {
+          name: 'time',
+          placeholder : "Event start time"
+        },
+        {
+          name: 'finish',
+          placeholder : "Event finish time"
         }
+
       ],
       buttons: [
         {
@@ -56,6 +69,7 @@ export class HomePage {
     prompt.present();
  
   }
+  
  
   updateEvent(event){
  
