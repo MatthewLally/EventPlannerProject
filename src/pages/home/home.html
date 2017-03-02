@@ -4,7 +4,7 @@
       Event Planner
     </ion-title>
     <ion-buttons end>
-      <button ion-button (click)="createEvent()">
+      <button ion-button (click)="showEvent()">
          <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,7 +17,6 @@
  
     <ion-item *ngFor="let event of events">
        <div item-left>{{ event.title }}</div>
-        <div item-right>{{ event.Date | date:'yMMMMd' }}</div>
     </ion-item> 
  
   </ion-list> 

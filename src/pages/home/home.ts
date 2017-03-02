@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { Events } from '../../providers/events';
 import { LoginPage } from '../login/login';
+import { EventPage } from '../event/event';
  
 @Component({
   selector: 'page-home',
@@ -11,7 +12,7 @@ export class HomePage {
  
   events: any;
  
-  constructor(public nav: NavController, public eventService: Events, public alertCtrl: AlertController) {
+  constructor(public nav: NavController, public eventService: Events, public alertCtrl: AlertController, private modalCtrl: ModalController) {
  
   }
  
@@ -89,5 +90,8 @@ export class HomePage {
   deleteEvent(event){
     this.eventService.deleteEvent(event);
   }
+  showEvent() {
+    this.nav.push(EventPage);
+    }
  
 }
