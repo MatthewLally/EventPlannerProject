@@ -12,16 +12,20 @@
 </ion-header>
  
 <ion-content>
+  <ion-list class = "list1">
  
-  <ion-list inset>
- 
-    <ion-item *ngFor="let event of events">
-       <div item-left>{{ event.title }}</div>
+    <ion-item-sliding *ngFor="let event of events">
+       <ion-item class="list">
+       <div item-left>{{ event.place }}</div>
+       <div item-left>{{ event.type }}</div>
+       <div item-left>{{ event.start }}</div>
+       <div item-left>{{ event.finish }}</div>
     </ion-item> 
- 
-  </ion-list> 
+  
    <button ion-button (click)="createEvent()">
          <ion-icon name="add"></ion-icon>
    </button>
+    </ion-item-sliding>
+  </ion-list>
  
 </ion-content> 
