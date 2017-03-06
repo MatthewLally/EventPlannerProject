@@ -29,8 +29,37 @@ export class HomePage {
     this.events = null;
     this.nav.setRoot(LoginPage);
   }
- 
-   createEvent(){
+
+  createEvent(){
+
+    let prompt = this.alertCtrl.create({
+      title: 'Add',
+      message: 'What do you need to do?',
+      inputs: [
+        {
+          name: 'title'
+        },
+        {
+          name : 'start'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.eventService.createEvent({title: data.title, name: data.start});
+          }
+        }
+      ]
+    });
+
+    prompt.present();
+
+  }
+  /** createEvent(){
  
     let prompt = this.alertCtrl.create({
       title: 'Add Event',
@@ -60,7 +89,7 @@ export class HomePage {
         {
           text: 'Save',
           handler: data => {
-            this.eventService.createEvent({title: data.title});
+            this.eventService.createEvent({place: data.place}), ({type: data.type}), ({start: data.start}), ({finish : data.finish}) ;
           }
         }
       ]
@@ -69,6 +98,7 @@ export class HomePage {
     prompt.present();
  
   }
+  */
   
  
   updateEvent(event){
@@ -104,8 +134,5 @@ export class HomePage {
   deleteEvent(event){
     this.eventService.deleteEvent(event);
   }
-  showEvent() {
-    this.nav.push(EventPage);
-    }
  
 }

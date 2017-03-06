@@ -29,13 +29,23 @@ export class Events {
     console.log(this.db);
 
   }
+  fetch(){
+    return this.db.allDocs({include_docs: true});
+  }
+  get(){
+    return this.remote.allDocs({include_docs: true});
+  }
+
 
   logout(){
 
     this.data = null;
+     this.db.destroy().then(() => {
+      console.log("database removed");
+  });
   }
 
-  getEvents() {
+ getEvents() {
 
     if (this.data) {
       return Promise.resolve(this.data);
@@ -50,6 +60,9 @@ export class Events {
       }).then((result) => {
 
         this.data = [];
+         for(let i = 0; i<= result.rows.length; i++) { this.data.push(result.rows[i].doc);  {
+    }};
+        
 
         let docs = result.rows.map((row) => {
           this.data.push(row.doc);
@@ -70,7 +83,7 @@ export class Events {
     });
 
   }
-
+      
   createEvent(event){
     this.db.post(event);
   }

@@ -3,29 +3,53 @@
     <ion-title>
       Event Planner
     </ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+    </ion-buttons>
     <ion-buttons end>
-      <button ion-button (click)="showEvent()">
+      <button ion-button (click)="createEvent()">
          <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
  
-<ion-content>
-  <ion-list class = "list1">
+<!--<ion-content>
+  <ion-list no-lines>
  
     <ion-item-sliding *ngFor="let event of events">
-       <ion-item class="list">
-       <div item-left>{{ event.place }}</div>
-       <div item-left>{{ event.type }}</div>
-       <div item-left>{{ event.start }}</div>
-       <div item-left>{{ event.finish }}</div>
+       <ion-item>
+         {{event.place}}
+         {{event.type}}
+         {{event.start}}
+         {{event.finish}}
     </ion-item> 
-  
-   <button ion-button (click)="createEvent()">
-         <ion-icon name="add"></ion-icon>
-   </button>
     </ion-item-sliding>
   </ion-list>
  
-</ion-content> 
+</ion-content> -->
+<ion-content>
+
+  <ion-list no-lines>
+
+    <ion-item-sliding *ngFor="let event of events">
+
+      <ion-item>
+
+        {{event.title}}
+
+      </ion-item>
+
+      <ion-item-options>
+        <button ion-button icon-only color="light" (click)="updateEvent(event)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button ion-button icon-only color="primary" (click)="deleteEvent(event)">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list> 
+
+</ion-content>
