@@ -14,23 +14,9 @@
   </ion-navbar>
 </ion-header>
  
-<!--<ion-content>
-  <ion-list no-lines>
- 
-    <ion-item-sliding *ngFor="let event of events">
-       <ion-item>
-         {{event.place}}
-         {{event.type}}
-         {{event.start}}
-         {{event.finish}}
-    </ion-item> 
-    </ion-item-sliding>
-  </ion-list>
- 
-</ion-content> -->
 <ion-content>
 
-  <ion-list no-lines>
+  <ion-list class = "listDesign">
 
     <ion-item-sliding *ngFor="let event of events">
 
@@ -41,12 +27,12 @@
         <p>Type of Event : {{event.type}} </p>
       </ion-item>
 
-      <ion-item-options>
-        <button ion-button icon-only color="light" (click)="updateEvent(event)">
-          <ion-icon name="create"></ion-icon>
+      <ion-item-options side="right">
+        <button ion-button icon-only color="balanced" (click)="updateEvent(event)">
+          <ion-icon name="create">Edit Event</ion-icon>
         </button>
-        <button ion-button icon-only color="primary" (click)="deleteEvent(event)">
-          <ion-icon name="checkmark"></ion-icon>
+        <button ion-button colour="danger" (click)="deleteEvent(event)">
+          <ion-icon name="md-trash"> Delete </ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>
