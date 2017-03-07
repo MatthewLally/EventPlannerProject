@@ -34,11 +34,11 @@
 
     <ion-item-sliding *ngFor="let event of events">
 
-      <ion-item>
+      <ion-item class = "list">
 
-        {{event.title}}
+        <p>Title : {{event.title}} </p>
   
-        {{event.type}}
+        <p>Type of Event : {{event.type}} </p>
       </ion-item>
 
       <ion-item-options>
