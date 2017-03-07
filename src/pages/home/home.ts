@@ -74,57 +74,31 @@ export class HomePage {
     prompt.present();
 
   }
-  /** createEvent(){
- 
-    let prompt = this.alertCtrl.create({
-      title: 'Add Event',
-      inputs: [
-        {
-          name: 'place',
-          placeholder: "Event location"
-        },
-        {
-          name: 'type',
-          placeholder: "Type of event"
-        },
-        {
-          name: 'time',
-          placeholder : "Event start time"
-        },
-        {
-          name: 'finish',
-          placeholder : "Event finish time"
-        }
-
-      ],
-      buttons: [
-        {
-          text: 'Cancel'
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            this.eventService.createEvent({place: data.place}), ({type: data.type}), ({start: data.start}), ({finish : data.finish}) ;
-          }
-        }
-      ]
-    });
- 
-    prompt.present();
- 
-  }
-  */
   
  
   updateEvent(event){
  
     let prompt = this.alertCtrl.create({
       title: 'Edit',
-      message: 'Change your mind?',
+      message: 'Updating your event?',
       inputs: [
         {
-          name: 'title'
+          name: 'title',
+          placeholder: event.title
+        },
+        {
+          name: 'type',
+          placeholder: event.type
+        },
+        {
+          name : 'start',
+          placeholder: event.start
+        },
+        {
+          name :'finish',
+          placeholder : event.finish
         }
+
       ],
       buttons: [
         {
@@ -136,7 +110,10 @@ export class HomePage {
             this.eventService.updateEvent({
               _id: event._id,
               _rev: event._rev,
-              title: data.title
+              let newTitle:String = data.title,
+              let newType :String = data.type,
+              let newStart :String = data.start,
+              let newFinish:String =  data.finish
             });
           }
         }
