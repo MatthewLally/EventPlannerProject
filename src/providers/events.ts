@@ -58,13 +58,17 @@ export class Events {
         include_docs: true
 
       }).then((result) => {
+        var i = 5;
 
-        this.data = [];
-         for(let i = 0; i<= result.rows.length; i++) { this.data.push(result.rows[i].doc);  {
-    }};
+        this.data = [i];
         
+        
+          
+         
+
 
         let docs = result.rows.map((row) => {
+          this.data.push(row.doc);
           this.data.push(row.doc);
         });
 

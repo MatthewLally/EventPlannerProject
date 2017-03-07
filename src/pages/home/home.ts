@@ -40,7 +40,7 @@ export class HomePage {
           name: 'title'
         },
         {
-          name : 'start'
+          name: 'type'
         }
       ],
       buttons: [
@@ -50,7 +50,10 @@ export class HomePage {
         {
           text: 'Save',
           handler: data => {
-            this.eventService.createEvent({title: data.title, name: data.start});
+            this.eventService.createEvent({
+              title : data.title,
+              type : data.type
+            })
           }
         }
       ]
