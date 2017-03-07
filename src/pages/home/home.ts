@@ -113,7 +113,26 @@ export class HomePage {
               let newTitle:String = data.title,
               let newType :String = data.type,
               let newStart :String = data.start,
-              let newFinish:String =  data.finish
+              let newFinish:String =  data.finish,
+
+
+
+               if(event.title ='')
+               {
+                 newTitle = event.title;
+               }
+               if(event.type ='')
+               {
+                 newType = event.title;
+               }
+               if(event.start != '')
+               {
+                 newStart = event.start;
+               }
+               if(event.finish != '')
+               {
+                 newFinish = event.finish;
+               }
             });
           }
         }
