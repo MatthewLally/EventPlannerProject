@@ -9,7 +9,31 @@ page-home {
   text-align: center;
 }
 
- 
+ .listDesign{
+  position: absolute;
+      background-color: rgba(0, 0, 0, 0);
+}
+
+ ion-item {
+	   border-radius: 30px !important;
+     padding-left: 10px !important;
+     margin-bottom: 10px;
+     font-weight: bold;
+	  }
+
+
+    .home {
+  position: absolute;
+  left: 0%;
+  top: 1%;
+  background: url(img/background.jpg);
+  background-size : cover;
+}
+
+// sets colour of toolbar-background
+.toolbar-background {
+  background-color: skyblue;
+}
 
  
 }

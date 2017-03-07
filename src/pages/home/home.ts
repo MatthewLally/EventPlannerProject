@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { Events } from '../../providers/events';
 import { LoginPage } from '../login/login';
-import { EventPage } from '../event/event';
+
  
 @Component({
   selector: 'page-home',
@@ -76,7 +76,7 @@ export class HomePage {
   }
   
  
-  updateEvent(event){
+  updateEvent(event):void{
  
     let prompt = this.alertCtrl.create({
       title: 'Edit',
@@ -110,29 +110,16 @@ export class HomePage {
             this.eventService.updateEvent({
               _id: event._id,
               _rev: event._rev,
-              let newTitle:String = data.title,
-              let newType :String = data.type,
-              let newStart :String = data.start,
-              let newFinish:String =  data.finish,
+              title : data.title,
+              type : data.type,
+              start : data.start,
+              finish : data.finish
 
 
 
-               if(event.title ='')
-               {
-                 newTitle = event.title;
-               }
-               if(event.type ='')
-               {
-                 newType = event.title;
-               }
-               if(event.start != '')
-               {
-                 newStart = event.start;
-               }
-               if(event.finish != '')
-               {
-                 newFinish = event.finish;
-               }
+
+
+              
             });
           }
         }
