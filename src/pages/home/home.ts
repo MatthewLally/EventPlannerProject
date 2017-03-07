@@ -34,14 +34,24 @@ export class HomePage {
 
     let prompt = this.alertCtrl.create({
       title: 'Add',
-      message: 'What do you need to do?',
+      message: 'Add your Event',
       inputs: [
         {
-          name: 'title'
+          name: 'title',
+          placeholder: " Event Name "
         },
         {
-          name: 'type'
-        }
+          name: 'type',
+          placeholder: "Event type (wedding etc)"
+        },
+        {
+          name: 'start',
+        placeholder: "Event Start Time"
+      },
+      {
+        name: 'finish',
+        placeholder : "Event Finish Time"
+      }
       ],
       buttons: [
         {
@@ -52,7 +62,9 @@ export class HomePage {
           handler: data => {
             this.eventService.createEvent({
               title : data.title,
-              type : data.type
+              type : data.type,
+              start : data.start,
+              finish: data.finish
             })
           }
         }
