@@ -1,53 +1,53 @@
-.ios, .md {
+page-login {
+   .login-content {
+    background: #56CA96;
  
-  page-login {
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
  
-      .scroll-content {
-        background-color: map-get($colors, secondary);
-        display: flex;
-        flex-direction: column;
-      }
+    .login-box {
+      background: #399F8B;
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+    }
  
-      ion-row {
-        align-items: center;
-        text-align: center;
-      }
+    ion-row {
+       align-items: center;
+       text-align: center;
+     }
  
-      ion-item {
-          border-radius: 30px !important;
-          padding-left: 10px !important;
-          margin-bottom: 10px;
-          background-color: #3fe5e5;
-          opacity: 0.7;
-          font-size: 0.9em;
-      }
+     ion-item {
+         border-radius: 30px !important;
+         padding-left: 30px !important;
+         font-size: 0.9em;
+         margin-bottom: 10px;
+         border: 1px solid #ffffff;
+         border-bottom: 0px !important;
+         box-shadow: none !important;
+     }
  
-      ion-list {
-          margin: 0;
-      }
+     .signup-col {
+       margin: 0px 16px 0px 16px;
+       padding-bottom: 20px;
+     }
  
-      .login-logo {
-        flex: 2;
-      }
+     .item-inner {
+       border-bottom-color: #ffffff !important;
+       box-shadow: none !important;
+     }
  
-      .login-form {
-          flex: 1;
-      }
+     .submit-btn {
+       background: #51CFB1;
+       border-radius: 30px !important;
+       border: 1px solid #ffffff;
+     }
  
-      .create-account {
-        background-color: #000000;
-        text-decoration: underline;
-        background: none;
-      }
- 
-      .login-button {
-          width: 100%;
-          border-radius: 30px;
-          font-size: 0.9em;
-          background-color: transparent;
-          border: 1px solid #fff;
-      }
- 
+     .register-btn {
+       color: #ffffff;
+       font-size: 0.8em;
+     }
   }
  
 }

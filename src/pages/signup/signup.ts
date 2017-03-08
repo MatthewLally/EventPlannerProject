@@ -15,8 +15,9 @@ export class SignupPage {
   email: string;
   password: string;
   confirmPassword: string;
+  createSuccess = false;
  
-  constructor(public nav: NavController, public http: Http, public eventService: Events) {
+  constructor(public nav: NavController, public http: Http, public eventService: Events, public  alertCtrl) {
  
   }
  
@@ -35,12 +36,37 @@ export class SignupPage {
  
       this.http.post('http://localhost:3000/auth/register', JSON.stringify(user), {headers: headers})
         .subscribe(res => {
+          if (res){
+            this.createSuccess = true;
+            this.showPopup("Succes Account  Created")
+          }
           this.eventService.init(res.json());
           this.nav.setRoot(HomePage);
-        }, (err) => {
+        },
+        (err) => {
+          this.showPopup("Error");
           console.log(err);
         }); 
  
   }
+
+  showPopup(text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+       {
+         text: 'OK',
+         handler: data => {
+           if (this.createSuccess) {
+             this.nav.popToRoot();
+           }
+         }
+       }
+     ]
+    });
+    alert.present();
+  }
+}
  
 }
