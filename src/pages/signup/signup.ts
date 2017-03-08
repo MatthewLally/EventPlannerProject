@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Events } from '../../providers/events';
  
@@ -17,7 +17,7 @@ export class SignupPage {
   confirmPassword: string;
   createSuccess = false;
  
-  constructor(public nav: NavController, public http: Http, public eventService: Events, public  alertCtrl) {
+  constructor(public nav: NavController, public http: Http, public eventService: Events, public  alertCtrl: AlertController) {
  
   }
  
@@ -38,13 +38,13 @@ export class SignupPage {
         .subscribe(res => {
           if (res){
             this.createSuccess = true;
-            this.showPopup("Succes Account  Created")
+            this.showPopup("Success Account  Created")
           }
           this.eventService.init(res.json());
           this.nav.setRoot(HomePage);
         },
         (err) => {
-          this.showPopup("Error");
+          this.showPopup("Error, please make sure form is filled out correctly");
           console.log(err);
         }); 
  
@@ -52,7 +52,6 @@ export class SignupPage {
 
   showPopup(text) {
     let alert = this.alertCtrl.create({
-      title: title,
       subTitle: text,
       buttons: [
        {
@@ -68,5 +67,4 @@ export class SignupPage {
     alert.present();
   }
 }
- 
-}
+
