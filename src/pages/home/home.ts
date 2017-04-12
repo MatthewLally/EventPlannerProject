@@ -3,6 +3,8 @@ import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { Events } from '../../providers/events';
 import { LoginPage } from '../login/login';
 
+
+
  
 @Component({
   selector: 'page-home',
@@ -30,6 +32,7 @@ export class HomePage {
     this.nav.setRoot(LoginPage);
   }
 
+  
   createEvent(){
 
     let prompt = this.alertCtrl.create({
@@ -51,6 +54,10 @@ export class HomePage {
       {
         name: 'finish',
         placeholder : "Event Finish Time"
+      },
+      {
+        name: 'location',
+        placeholder : "Event Location"
       }
       ],
       buttons: [
@@ -64,7 +71,8 @@ export class HomePage {
               title : data.title,
               type : data.type,
               start : data.start,
-              finish: data.finish
+              finish: data.finish,
+              location: data.location
             })
           }
         }
@@ -73,7 +81,7 @@ export class HomePage {
 
     prompt.present();
 
-  }
+  } 
   
  
   updateEvent(event):void{
@@ -97,7 +105,13 @@ export class HomePage {
         {
           name :'finish',
           placeholder : event.finish
+        },
+        {
+          name : 'location',
+          placeholder : event.location
         }
+        
+        
 
       ],
       buttons: [
@@ -113,7 +127,8 @@ export class HomePage {
               title : data.title,
               type : data.type,
               start : data.start,
-              finish : data.finish
+              finish : data.finish,
+              location : data.location
 
 
 

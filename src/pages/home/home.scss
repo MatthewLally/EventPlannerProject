@@ -11,6 +11,8 @@ page-home {
 
  .listDesign{
   position: absolute;
+  left: 40%;
+      top: 10%;
       background-color: rgba(0, 0, 0, 0);
 }
 
@@ -26,8 +28,7 @@ page-home {
   position: absolute;
   left: 0%;
   top: 1%;
-  background-image: url(img/background.jpg);
-  color : red;
+  background-color : #56CA96;
 }
 
 // sets colour of toolbar-background

@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { Events } from '../providers/events';
+
  
 
 @NgModule({
@@ -12,7 +13,7 @@ import { Events } from '../providers/events';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage,
+    SignupPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
