@@ -4,10 +4,10 @@
       Event Planner
     </ion-title>
     <ion-buttons start>
-      <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+      <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button> <!--If logout button is clicked go to this function -->
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button (click)="createEvent()">
+      <button ion-button (click)="createEvent()"> <!-- If clicked go to create event function -->
          <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -21,13 +21,15 @@
 
   <ion-list class = "listDesign">
 
-    <ion-item-sliding *ngFor="let event of events">
+    <ion-item-sliding *ngFor="let event of events"> <!-- Calls in the events -->
 
       <ion-item class = "list">
 
-        <p class="dark">Title : {{event.title}} </p>
+        <p> Title : {{event.title}} </p> <!-- Calls the event title -->
   
         <p>Type of Event : {{event.type}} </p>
+
+        <p> Event Location : {{event.location}} </p>
 
         <p> Event Start Time : {{event.start}} </p>
 

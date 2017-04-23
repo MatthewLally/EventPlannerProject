@@ -4,6 +4,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { HomePage } from '../home/home';
 import { Events } from '../../providers/events';
+import { AboutPage } from '../about/about';
  
 @Component({
   selector: 'page-login',
@@ -59,6 +60,10 @@ export class LoginPage {
  
   launchSignup(){
     this.nav.push(SignupPage);
+  }
+
+  aboutPage(){
+    this.nav.push(AboutPage);
   }
  
 }

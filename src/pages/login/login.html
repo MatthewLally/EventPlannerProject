@@ -7,16 +7,16 @@
     <ion-col></ion-col>
   </ion-row>
    <div class="login-box">
-    <form (ngSubmit)="login()" #registerForm="ngForm">
+    <form (ngSubmit)="login()" #registerForm="ngForm"> <!-- Creates form for registration -->
       <ion-row>
         <ion-col>
           <ion-list inset>
             
             <ion-item>
-              <ion-input type="text" placeholder="Username" name="username" [(ngModel)]="username" required></ion-input>
+              <ion-input type="text" placeholder="Username" name="username" [(ngModel)]="username" required></ion-input> <!--takes in the username -->
             </ion-item>
             	<p ion-text [hidden]="submitted == false" color="danger" padding-left>
-				        Username is required
+				        Username is required <!-- If nothing is entered display a message -->
 			      </p>
             
             <ion-item>
@@ -32,8 +32,9 @@
       </ion-row>
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid" >Login</button>
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid" >Login</button> <!-- If form is filled out correctly allow the user to submit the form for validation , if not blank out the submit button -->
           <button ion-button class="register-btn" block clear (click)="launchSignup()">Create New Account</button>
+           <button ion-button class="about-btn" block clear (click)="aboutPage()">About App</button>
         </ion-col>
       </ion-row>
       

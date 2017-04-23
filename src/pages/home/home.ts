@@ -25,7 +25,8 @@ export class HomePage {
     });
  
   }
- 
+
+  
   logout(){
     this.eventService.logout();
     this.events = null;
@@ -147,5 +148,7 @@ export class HomePage {
   deleteEvent(event){
     this.eventService.deleteEvent(event);
   }
+
+  
  
 }

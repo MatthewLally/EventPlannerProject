@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { Events } from '../providers/events';
+import { AboutPage } from '../pages/about/about';
 
  
 
@@ -13,7 +14,8 @@ import { Events } from '../providers/events';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    AboutPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -23,7 +25,8 @@ import { Events } from '../providers/events';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage, 
+    AboutPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Events]
 })
