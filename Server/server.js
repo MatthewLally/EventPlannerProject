@@ -1,7 +1,7 @@
-var express = require('express');
+var express = require('express'); //Create our app with express
 var http = require('http');
-var bodyParser = require('body-parser');
-var logger = require('morgan');
+var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
+var logger = require('morgan'); //Logs requests to the console
 var cors = require('cors');
 var SuperLogin = require('superlogin');
  

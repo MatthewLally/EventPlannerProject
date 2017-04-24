@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { NavController, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { LoginPage } from '../login/login'
 import { Events } from '../../providers/events';
  
 @Component({
@@ -26,7 +27,7 @@ export class SignupPage {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
  
-      let user = {
+      let user = { //Let the user be equal to the data entered 
         name: this.name,
         username: this.username,
         email: this.email,
@@ -38,10 +39,10 @@ export class SignupPage {
         .subscribe(res => {
           if (res){
             this.createSuccess = true;
-            this.showPopup("Success Account  Created")
+            this.showPopup("Success Account  Created") //check response, if created show this message
           }
           this.eventService.init(res.json());
-          this.nav.setRoot(HomePage);
+          this.nav.setRoot(LoginPage); //If logged in
         },
         (err) => {
           this.showPopup("Error, please make sure form is filled out correctly");
