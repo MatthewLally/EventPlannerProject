@@ -60,5 +60,5 @@ var superlogin = new SuperLogin(config);
 // Mount SuperLogin's routes to our app 
 app.use('/auth', superlogin.router);
  
-app.listen(app.get('port'));
+app.listen(app.get('port')); //Gets the port that has been set up above
 console.log("App listening on " + app.get('port'));

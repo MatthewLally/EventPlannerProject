@@ -59,6 +59,9 @@ export class Events {
         include_docs: true
 
       }).then((result) => {
+          // Each row has a .doc object and we just want to send an 
+                // array of events back to the calling controller,
+                // so let's map the array to contain just the .doc objects.
         var i = 5;
 
         this.data = [i];
@@ -75,8 +78,9 @@ export class Events {
 
         resolve(this.data);
 
+        //Listen for changes on the database
         this.db.changes({live: true, since: 'now', include_docs: true}).on('change', (change) => {
-          this.handleChange(change); //If changed, change the data
+          this.handleChange(change); 
         });
 
       }).catch((error) => {
