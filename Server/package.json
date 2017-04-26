@@ -1,22 +1,22 @@
 {
-  "name": "event-planner",
-  "version": "0.1.0",
+  "name": "event-planner", //This class specifies the "dependencies" to be installed by npm 
+  "version": "0.1.0", 
   "description": "An Ionic event planner",
   "engines": {
     "node": "5.9.1"
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js" //Command to start the server
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "cors": "^2.8.0",
-    "del": "2.2.0",
-    "express": "^4.14.0",
+    "body-parser": "^1.15.2", //Grabs information from post requests
+    "cors": "^2.8.0", //Handles CORS
+    "del": "2.2.0", 
+    "express": "^4.14.0", //Helps create routes for the api
     "http": "0.0.0",
-    "method-override": "^2.3.6",
-    "morgan": "^1.7.0",
+    "method-override": "^2.3.6", //Supports delete and put
+    "morgan": "^1.7.0", // shows helpful debugging messages
     "superlogin": "^0.6.1"
   }
 }
